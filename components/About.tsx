@@ -1,4 +1,4 @@
-import vector from "@/public/vector.png";
+import vector from "../public/vector.png";
 import Image from "next/image";
 
 export default function About() {
@@ -10,10 +10,7 @@ export default function About() {
                     <h1 className="font-extrabold text-6xl">Achmad Raihan</h1>
                     <h1 className="font-extrabold text-3xl">a junior developer</h1>
                 </div>
-                <p className="text-base max-w-prose">
-                    I am from Indonesia. I am currently pursuing my bachelor's degree at Sunan Ampel State Islamic University, Information Systems Department. Currently I am learning{" "}
-                    <span>ReactJS</span>, <span>TailwindCSS</span>, <span>NextJS</span>.
-                </p>
+                <p className="text-base max-w-prose">I am from Indonesia. I am currently pursuing my bachelor's degree at Sunan Ampel State Islamic University, Information Systems Department.</p>
             </div>
             <Image src={vector} alt="vectors" className="w-80 h-80" />
         </div>

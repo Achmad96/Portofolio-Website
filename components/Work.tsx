@@ -1,44 +1,52 @@
-import calculator from "@/public/images/calculator.png";
-import todolist from "@/public/images/todolist.png";
+import calculator from "../public/images/calculator.png";
+import todolist from "../public/images/todolist.png";
 import Image from "next/image";
 import Link from "next/link";
-import { FaReact, FaHtml5, FaCss3, FaJs } from "react-icons/fa";
+import { IconType } from "react-icons";
+import { FaReact, FaHtml5, FaCss3, FaJs, FaNodeJs } from "react-icons/fa";
+import { SiTailwindcss } from "react-icons/si";
+import { TbBrandNextjs } from "react-icons/tb";
+
+const projects = [
+    {
+        title: "Calculator",
+        thumbnail: calculator,
+        description:
+            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        iconTypes: ["react", "css", "js"],
+        href: "https://calculator-web-umber.vercel.app/",
+    },
+    {
+        title: "Todolist",
+        thumbnail: todolist,
+        description:
+            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        iconTypes: ["react", "tailwind", "js"],
+        href: "https://todolist-app-three-jet.vercel.app/",
+    },
+];
 
 export default function Work() {
-    const projects = [
-        {
-            title: "Calculator",
-            thumbnail: calculator,
-            description:
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-            iconTypes: ["react", "css", "js"],
-            href: "https://calculator-web-umber.vercel.app/",
-        },
-        {
-            title: "Todolist",
-            thumbnail: todolist,
-            description:
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-            iconTypes: ["react", "css", "js"],
-            href: "https://todolist-app-three-jet.vercel.app/",
-        },
-    ];
-
-    const iconComponents: Record<string, any> = {
-        react: FaReact,
+    const iconComponents: Record<string, IconType> = {
         html: FaHtml5,
         css: FaCss3,
         js: FaJs,
+        tailwind: SiTailwindcss,
+        nodejs: FaNodeJs,
+        react: FaReact,
+        nextjs: TbBrandNextjs,
     };
 
     return (
         <div className="h-screen" id="work">
-            <div className="flex gap-10 w-full justify-center">
+            <div className="flex gap-10 max-sm:flex-col max-sm:gap-5 w-full">
                 {projects.map(project => (
-                    <div className="flex flex-col bg-zinc-900 p-10 rounded-xl gap-5 w-96" key={project.title}>
-                        <h3 className="text-2xl opacity-80">{project.title}</h3>
-                        <Image className="w-96 h-48" src={project.thumbnail} alt={project.title} />
-                        <p className="opacity-75">{project.description}</p>
+                    <div className="flex flex-col bg-zinc-900 p-10 rounded-xl w-96" key={project.title}>
+                        <div className="flex flex-col h-[33rem] gap-5">
+                            <h3 className="text-2xl opacity-80">{project.title}</h3>
+                            <Image className="w-96 h-48" src={project.thumbnail} alt={project.title} />
+                            <p className="opacity-75">{project.description}</p>
+                        </div>
                         <div className="flex mt-3 justify-between">
                             <div className="flex items-center gap-5">
                                 {project.iconTypes.map((iconType, index) => {

@@ -10,6 +10,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 20px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -46,6 +47,7 @@ nav a::after {
 nav a:hover::after {
     width: 100%;
 }
+
 nav a:hover {
     opacity: 70%;
 }

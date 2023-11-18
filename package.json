@@ -9,7 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "contentlayer": "^0.3.4",
+    "date-fns": "^2.30.0",
     "next": "latest",
+    "next-contentlayer": "^0.3.4",
     "react": "latest",
     "react-dom": "latest",
     "react-icons": "^4.12.0"
