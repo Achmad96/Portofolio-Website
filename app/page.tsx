@@ -1,11 +1,11 @@
-import Contents from "@/components/Contents";
-import Navbar from "@/components/Navbar";
+import About from "@/components/About";
+import Work from "@/components/Work";
 
 export default function Home() {
     return (
-        <main className="flex min-h-screen flex-col">
-            <Navbar />
-            <Contents />
+        <main className="min-h-screen">
+            <About />
+            <Work />
         </main>
     );
 }
