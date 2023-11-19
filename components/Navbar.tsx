@@ -5,7 +5,6 @@ export default function Navbar() {
         <nav className="flex gap-10 justify-end items-center h-[10vh] mr-10">
             <Link href={"/"}>Home</Link>
             <Link href={"/posts"}>Posts</Link>
-            <a href="#work">Work</a>
         </nav>
     );
 }
