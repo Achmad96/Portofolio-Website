@@ -10,18 +10,32 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
     const MDXContent = useMDXComponent(post.body.code);
 
     return (
-        <article className="prose prose-headings:text-cyan-50 lg:prose-xl mx-auto min-h-[72vh] text-cyan-50 max-w-[80%] ">
-            <div className="mb-8 flex flex-col items-center">
-                <Image src={post.thumbnail} width={600} height={450} alt={"thumbnail"} />
-                <h1 className="text-3xl font-bold text-cyan-50">{post.title}</h1>
-                <time dateTime={post.date} className="mb-1 text-xs text-gray-600">
-                    {new Intl.DateTimeFormat("en-US").format(new Date(post.date))}
-                </time>
+        <div className="mx-auto min-h-[72vh] max-w-[80%]">
+            <div className="mb-6">
+                {/* <Image src={post.thumbnail} width={600} height={450} alt={"thumbnail"} /> */}
+                <div
+                    style={{
+                        backgroundImage: `url(${post.thumbnail})`,
+                        backgroundPosition: "center",
+                        backgroundSize: "cover",
+                        width: "100%",
+                        height: "50vh",
+                        flex: "auto",
+                        alignItems: "end",
+                        justifyContent: "end",
+                    }}
+                ></div>
+                <div className="flex mt-5 flex-col gap-1">
+                    <h1 className="text-5xl font-extralight text-cyan-50">{post.title}</h1>
+                    <time dateTime={post.date} className="mb-1 text-lg text-gray-400">
+                        {new Intl.DateTimeFormat("en-US").format(new Date(post.date))}
+                    </time>
+                </div>
             </div>
-            <div className="text-justify">
+            <article className="prose max-w-fit prose-invert lg:prose-xl prose-img:mx-auto text-justify">
                 <MDXContent />
-            </div>
-        </article>
+            </article>
+        </div>
     );
 };
 
