@@ -7,7 +7,7 @@ export default function Contact() {
     const [index, setIndex] = useState(0);
     return (
         <div className="w-full h-screen flex justify-center items-center ">
-            <form autoComplete="off" method="post" name="contactPerson" className="flex flex-col w-[50%] max-md:w-[80%] justify-start gap-5">
+            <form autoComplete="off" method="post" name="contactPerson" className="flex flex-col w-[50%] max-md:w-[80%] justify-start gap-5 text-white">
                 <h1 className="text-3xl">Please give me an advice &#129303;</h1>
                 <motion.label initial={{ x: -100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }}>
                     <input
