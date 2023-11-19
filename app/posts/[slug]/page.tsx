@@ -1,7 +1,6 @@
 import { allPosts } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 import { useMDXComponent } from "next-contentlayer/hooks";
-import Image from "next/image";
 
 const PostLayout = ({ params }: { params: { slug: string } }) => {
     const post = allPosts.find(post => post._raw.flattenedPath === params.slug);
@@ -12,7 +11,6 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
     return (
         <div className="mx-auto min-h-[72vh] max-w-[80%]">
             <div className="mb-6">
-                {/* <Image src={post.thumbnail} width={600} height={450} alt={"thumbnail"} /> */}
                 <div
                     style={{
                         backgroundImage: `url(${post.thumbnail})`,
