@@ -7,7 +7,7 @@ export default function Contact() {
     useEffect(() => {
         if (ref.current !== null && index < 1) {
             ref.current.disabled = true;
-        } else if (ref.current !== null && index === 1) {
+        } else if (ref.current !== null && index >= 1) {
             ref.current.disabled = false;
             ref.current.focus();
         }
