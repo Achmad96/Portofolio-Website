@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function PostCard(post: Post) {
     const thumbnail = post.thumbnail || "";
     return (
-        <div className="flex flex-col gap-5 w-80 items-center">
+        <div className="w-80 max-md:w-72 flex flex-col gap-5 items-center">
             <Link href={post.url}>
                 <Image src={thumbnail} alt="thumbnail" width={700} height={500} />
             </Link>
