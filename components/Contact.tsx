@@ -1,4 +1,5 @@
 "use client";
+import { BASE_URL } from "context/EnvContext";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 export default function Contact() {
@@ -14,7 +15,7 @@ export default function Contact() {
     }, [index]);
     return (
         <div className="w-full h-screen flex justify-center items-center ">
-            <form autoComplete="off" method="post" name="contactPerson" className="flex flex-col w-[50%] max-md:w-[80%] justify-start gap-5 text-white">
+            <form autoComplete="off" method="post" action={`${BASE_URL}/contact`} name="contactPerson" className="flex flex-col w-[50%] max-md:w-[80%] justify-start gap-5 text-white">
                 <h1 className="text-3xl">Please give me an advice &#129303;</h1>
                 <motion.input
                     initial={{ x: -100, opacity: 0 }}
