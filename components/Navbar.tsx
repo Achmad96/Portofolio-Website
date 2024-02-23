@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 export default function Navbar() {
-    return (
-        <nav className="flex gap-10 justify-end items-center h-[10vh] mr-10">
-            <Link href={"/"}>Home</Link>
-            <Link href={"/posts"}>Posts</Link>
-        </nav>
-    );
+  return (
+    <nav className="mr-10 flex h-[10vh] items-center justify-end gap-10">
+      <Link href={"/"}>Home</Link>
+      <Link href={"/posts"}>Posts</Link>
+    </nav>
+  );
 }

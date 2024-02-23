@@ -5,14 +5,9 @@ const port = 4848;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
 app.post("/contact", (req, res) => {
     res.status(200).json({
         message: "Successfully post data!",
-        data: {
-            username: req.body.username,
-            messages: req.body.messages,
-        },
     });
 });
 
