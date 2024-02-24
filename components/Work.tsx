@@ -60,7 +60,7 @@ export default function Work() {
               opacity: 0,
             },
           }}
-          className="card w-96 bg-base-100 shadow-xl"
+          className="card w-96 bg-base-100 shadow-xl hover:cursor-pointer"
           key={project.title}
           onClick={() => router.push(project.href)}
         >
@@ -77,8 +77,8 @@ export default function Work() {
               <div className="badge badge-primary">{project.type}</div>
             </h2>
             <p>{project.description}</p>
-            <div className="flex items-center gap-5">
-              <div className="card-actions justify-end">
+            <div className="card-actions justify-start">
+              <div className="mt-1 flex items-center gap-3">
                 {project.iconTypes.map((iconType, index) => {
                   const IconComponent = iconComponents[iconType];
                   return (

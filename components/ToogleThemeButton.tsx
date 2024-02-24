@@ -1,11 +1,21 @@
+"use client";
+
+import { useState } from "react";
 export default function ToogleThemeButton() {
+  const [theme, setTheme] = useState("light");
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
+    document.querySelector("html")?.setAttribute("data-theme", theme);
+  };
+
   return (
-    <label className="swap swap-rotate">
+    <label className="swap-rotate swap">
       <input
         type="checkbox"
         defaultChecked={true}
         className="theme-controller"
-        value="light"
+        value={theme}
+        onChange={() => toggleTheme()}
       />
       <svg
         className="swap-on h-5 w-5 fill-current"
