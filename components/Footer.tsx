@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FaGithub, FaYoutube, FaLinkedin, FaInstagram } from "react-icons/fa";
 export default function Footer() {
   return (
-    <footer className="flex h-[10vh] items-center justify-between border-t-[1px] border-t-slate-800 px-10 max-md:flex-col max-md:gap-3 max-md:pt-5">
+    <footer className="mt-5 flex h-[10vh] items-center justify-between border-t-[1px] border-t-slate-800 px-10 max-md:flex-col max-md:gap-3 max-md:pt-5">
       <div className="flex justify-center gap-10 max-sm:gap-7">
         <Link
           target="_blank"
