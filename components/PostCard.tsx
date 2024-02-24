@@ -8,7 +8,13 @@ export default function PostCard(post: Post) {
   return (
     <div className="flex w-80 flex-col items-center gap-5 max-md:w-72">
       <Link href={post.url}>
-        <Image src={thumbnail} alt="thumbnail" width={700} height={500} />
+        <Image
+          src={thumbnail}
+          alt="thumbnail"
+          width={700}
+          height={500}
+          priority
+        />
       </Link>
       <div className="flex flex-col">
         <h2 className="mb-1 text-2xl">
