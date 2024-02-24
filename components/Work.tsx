@@ -1,3 +1,4 @@
+"use client";
 import { Projects } from "./ProjectsMetadata";
 import Image from "next/image";
 import Link from "next/link";
@@ -5,6 +6,9 @@ import { IconType } from "react-icons";
 import { FaReact, FaHtml5, FaCss3, FaJs, FaNodeJs } from "react-icons/fa";
 import { SiTailwindcss } from "react-icons/si";
 import { TbBrandNextjs } from "react-icons/tb";
+
+import { motion, useAnimation, useInView } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 export default function Work() {
   const iconComponents: Record<string, IconType> = {
@@ -17,10 +21,43 @@ export default function Work() {
     nextjs: TbBrandNextjs,
   };
 
+  const control = useAnimation();
+  const ref = useRef<HTMLDivElement | null>(null);
+  const inView = useInView(ref, { once: true });
+
+  useEffect(() => {
+    if (inView) {
+      control.start("visible");
+    } else {
+      control.start("hidden");
+    }
+  }, [control, inView]);
+
   return (
-    <div className="flex w-full flex-wrap justify-center gap-10 max-sm:flex-col max-sm:items-center max-sm:gap-5">
-      {Projects.map((project) => (
-        <div
+    <div
+      ref={ref}
+      className="flex w-full flex-wrap justify-center gap-10 max-sm:flex-col max-sm:items-center max-sm:gap-5"
+    >
+      {Projects.map((project, i) => (
+        <motion.div
+          initial="hidden"
+          animate={control}
+          variants={{
+            visible: {
+              x: 0,
+              opacity: 1,
+              transition: {
+                type: "spring",
+                stiffness: 90,
+                damping: 30,
+                delay: i / 20,
+              },
+            },
+            hidden: {
+              x: -100,
+              opacity: 0,
+            },
+          }}
           className="flex w-[23rem] flex-col rounded-xl bg-zinc-900 p-7"
           key={project.title}
         >
@@ -48,7 +85,7 @@ export default function Work() {
               Click to see
             </Link>
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
   );

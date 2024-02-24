@@ -13,6 +13,7 @@ export default function Contact() {
       ref.current.focus();
     }
   }, [index]);
+
   return (
     <div className="flex h-screen w-full items-center justify-center ">
       <form
@@ -23,9 +24,7 @@ export default function Contact() {
         className="flex w-[50%] flex-col justify-start gap-5 text-white max-md:w-[80%]"
       >
         <h1 className="text-3xl">Please give me an advice &#129303;</h1>
-        <motion.input
-          initial={{ x: -100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
+        <input
           placeholder="Enter your name..."
           name="username"
           type="text"
