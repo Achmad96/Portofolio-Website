@@ -14,6 +14,7 @@ export default function Hero() {
         src={vector}
         alt="vectors"
         className="h-80 w-80 max-md:h-52 max-md:w-52"
+        priority
       />
     </div>
   );
