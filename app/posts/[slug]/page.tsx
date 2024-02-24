@@ -22,15 +22,13 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
           }}
         ></div>
         <div className="mt-5 flex flex-col gap-1">
-          <h1 className="text-5xl font-extralight text-cyan-50">
-            {post.title}
-          </h1>
-          <time dateTime={post.date} className="mb-1 text-lg text-gray-400">
+          <h1 className="text-5xl font-extralight">{post.title}</h1>
+          <time dateTime={post.date} className="mb-1 text-lg ">
             {new Intl.DateTimeFormat("en-US").format(new Date(post.date))}
           </time>
         </div>
       </div>
-      <article className="prose prose-invert max-w-fit text-justify lg:prose-xl prose-img:mx-auto">
+      <article className="prose max-w-fit text-justify prose-img:mx-auto">
         <MDXContent />
       </article>
     </div>
@@ -38,7 +36,6 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
 };
 
 export default PostLayout;
-
 export const generateStaticParams = async () =>
   allPosts.map((post) => ({ slug: post._raw.flattenedPath }));
 
