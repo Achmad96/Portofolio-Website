@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Mamad's Portofolio",
-  description: "Made by Achmad Raihan",
+  description: "Achmad Raihan's portofolio",
 };
 
 export default function RootLayout({

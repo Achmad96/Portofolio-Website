@@ -5,9 +5,7 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 const PostLayout = ({ params }: { params: { slug: string } }) => {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
   if (!post) notFound();
-
   const MDXContent = useMDXComponent(post.body.code);
-
   return (
     <div className="mx-auto min-h-[72vh] max-w-[80%]">
       <div className="mb-6">

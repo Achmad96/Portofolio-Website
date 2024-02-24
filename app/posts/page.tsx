@@ -1,7 +1,8 @@
 import { allPosts } from "contentlayer/generated";
-import PostCard from "components/PostCard";
 import { Suspense } from "react";
-export default function PostForm() {
+import PostCard from "components/PostCard";
+
+export default async function PostForm() {
   const posts = allPosts.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   );
