@@ -1,46 +1,45 @@
 "use client";
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { KeyboardEvent, FormEvent, useEffect, useRef, useState } from "react";
 
 export default function Contact() {
-  const ref = useRef<HTMLInputElement | null>(null);
-  const [index, setIndex] = useState(0);
-  useEffect(() => {
-    if (ref.current !== null && index < 1) {
-      ref.current.disabled = true;
-    } else if (ref.current !== null && index >= 1) {
-      ref.current.disabled = false;
-      ref.current.focus();
-    }
-  }, [index]);
-
+  const ref = useRef<HTMLTextAreaElement | null>(null);
   return (
-    <div className="flex h-screen w-full items-center justify-center ">
+    <div className="flex h-screen w-full items-center justify-center">
       <form
         autoComplete="off"
-        className="flex w-[50%] flex-col justify-start gap-5 text-white max-md:w-[80%]"
+        className="flex w-[50%] flex-col justify-start gap-5 max-md:w-[80%]"
       >
         <h1 className="text-3xl">Please give me an advice &#129303;</h1>
         <input
-          placeholder="Enter your name..."
+          placeholder="Your name"
           name="username"
           type="text"
-          className="bg-transparent p-3 text-lg"
+          className="input w-full"
+          maxLength={30}
           onKeyDown={(e) => {
             if (e.key === "Enter") {
-              setIndex(1);
               e.preventDefault();
             }
           }}
         />
-        <motion.input
-          initial={{ x: -100, opacity: 0 }}
-          animate={index >= 1 ? { x: 0, opacity: 1 } : {}}
+        <textarea
+          placeholder="Messages"
+          maxLength={200}
           ref={ref}
-          placeholder="Enter your message..."
           name="messages"
-          type="text"
-          className="bg-transparent p-3 text-lg"
+          className="textarea resize-none overflow-hidden"
+          onInput={(e: FormEvent<HTMLTextAreaElement>) => {
+            if (ref.current && e.currentTarget.scrollHeight <= 120) {
+              ref.current.style.height = "auto";
+              ref.current.style.height = `${e.currentTarget.scrollHeight}px`;
+            }
+          }}
+          onKeyDown={(e: KeyboardEvent<HTMLTextAreaElement>) => {
+            if (ref.current && e.key === "Enter") {
+              e.preventDefault();
+            }
+          }}
         />
         <input type="submit" className="hidden" />
       </form>
