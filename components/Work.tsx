@@ -74,7 +74,7 @@ export default function Work() {
           <div className="card-body">
             <h2 className="card-title">
               {project.title}
-              {/* <div className="badge badge-secondary">NEW</div> */}
+              <div className="badge badge-primary">{project.type}</div>
             </h2>
             <p>{project.description}</p>
             <div className="flex items-center gap-5">

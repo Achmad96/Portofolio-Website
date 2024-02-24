@@ -1,11 +1,6 @@
-"use client";
-import { useState } from "react";
-
 export default function ToogleThemeButton() {
-  const [isLightTheme, setIsLightTheme] = useState<boolean>(false);
-
   return (
-    <label className="swap-rotate swap">
+    <label className="swap swap-rotate">
       <input
         type="checkbox"
         defaultChecked={true}

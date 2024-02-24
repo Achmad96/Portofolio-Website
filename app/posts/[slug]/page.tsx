@@ -2,6 +2,13 @@ import { allPosts } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
+const options: Intl.DateTimeFormatOptions = {
+  weekday: "long",
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+};
+
 const PostLayout = ({ params }: { params: { slug: string } }) => {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
   if (!post) notFound();
@@ -21,10 +28,10 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
             justifyContent: "end",
           }}
         ></div>
-        <div className="mt-5 flex flex-col gap-1">
+        <div className="mt-5 flex flex-col gap-3">
           <h1 className="text-5xl font-extralight">{post.title}</h1>
-          <time dateTime={post.date} className="mb-1 text-lg ">
-            {new Intl.DateTimeFormat("en-US").format(new Date(post.date))}
+          <time dateTime={post.date} className="mb-1 text-lg">
+            {new Intl.DateTimeFormat("id", options).format(new Date(post.date))}
           </time>
         </div>
       </div>

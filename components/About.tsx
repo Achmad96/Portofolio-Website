@@ -44,7 +44,7 @@ export default function About() {
       >
         <motion.p
           variants={itemVariant}
-          className="text-2xl font-bold text-teal-200"
+          className="text-2xl font-bold text-teal-400"
         >
           Hi, my name is
         </motion.p>
