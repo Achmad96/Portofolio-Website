@@ -20,7 +20,7 @@ export default function ToogleThemeButton() {
     <label className="swap swap-rotate">
       <input
         type="checkbox"
-        defaultChecked={theme !== "light"}
+        checked={theme !== "light"}
         onChange={toggleTheme}
       />
       <svg
