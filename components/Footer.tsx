@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FaGithub, FaYoutube, FaLinkedin, FaInstagram } from "react-icons/fa";
 export default function Footer() {
   return (
-    <footer className=" my-7 flex h-[10vh] items-center justify-between border-t-[1px] border-t-slate-800 px-10 max-md:flex-col max-md:gap-3 max-md:pt-5">
+    <footer className="flex h-[10vh] items-center justify-between border-t-[1px] border-t-slate-800 px-10 max-md:flex-col max-md:gap-3 max-md:pt-5">
       <div className="flex justify-center gap-10 max-sm:gap-7">
         <Link
           target="_blank"
@@ -33,9 +33,10 @@ export default function Footer() {
           <FaYoutube className="h-6 w-6" />
         </Link>
       </div>
-      <p>
-        Made by <strong>Achmad Raihan</strong>
-      </p>
+      <div className="flex flex-col text-xs">
+        <p>Copyright © 2024 by Achmad Raihan</p>
+        <p>All rights reserved</p>
+      </div>
     </footer>
   );
 }

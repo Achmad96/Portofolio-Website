@@ -1,14 +1,15 @@
 "use client";
-import { Projects } from "./ProjectsMetadata";
-import Image from "next/image";
-import Link from "next/link";
+import { Projects } from "../constants/ProjectsMetadata";
 import { IconType } from "react-icons";
 import { FaReact, FaHtml5, FaCss3, FaJs, FaNodeJs } from "react-icons/fa";
 import { SiTailwindcss } from "react-icons/si";
 import { TbBrandNextjs } from "react-icons/tb";
 
+import Image from "next/image";
+
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Work() {
   const iconComponents: Record<string, IconType> = {
@@ -24,6 +25,7 @@ export default function Work() {
   const control = useAnimation();
   const ref = useRef<HTMLDivElement | null>(null);
   const inView = useInView(ref, { once: true });
+  const router = useRouter();
 
   useEffect(() => {
     if (inView) {
@@ -58,32 +60,35 @@ export default function Work() {
               opacity: 0,
             },
           }}
-          className="flex w-[23rem] flex-col rounded-xl bg-zinc-900 p-7"
+          className="card w-96 bg-base-100 shadow-xl"
           key={project.title}
+          onClick={() => router.push(project.href)}
         >
-          <div className="flex h-[33rem] flex-col gap-5">
-            <h3 className="text-2xl opacity-80">{project.title}</h3>
+          <figure>
             <Image
               className="h-48 w-96"
               src={project.thumbnail}
               alt={project.title}
             />
-            <p className="opacity-75">{project.description}</p>
-          </div>
-          <div className="mt-3 flex justify-between">
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title">
+              {project.title}
+              {/* <div className="badge badge-secondary">NEW</div> */}
+            </h2>
+            <p>{project.description}</p>
             <div className="flex items-center gap-5">
-              {project.iconTypes.map((iconType, index) => {
-                const IconComponent = iconComponents[iconType];
-                return (
-                  <span key={index}>
-                    <IconComponent size={25} />
-                  </span>
-                );
-              })}
+              <div className="card-actions justify-end">
+                {project.iconTypes.map((iconType, index) => {
+                  const IconComponent = iconComponents[iconType];
+                  return (
+                    <span key={index}>
+                      <IconComponent size={25} />
+                    </span>
+                  );
+                })}
+              </div>
             </div>
-            <Link href={project.href} className="hover:underline">
-              Click to see
-            </Link>
           </div>
         </motion.div>
       ))}
