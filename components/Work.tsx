@@ -44,6 +44,9 @@ export default function Work() {
         <motion.div
           initial="hidden"
           animate={control}
+          whileHover={{
+            scale: 1.05,
+          }}
           variants={{
             visible: {
               x: 0,

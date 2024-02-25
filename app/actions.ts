@@ -6,7 +6,7 @@ export async function sendEmailMessage(formData: FormData) {
   const messages = formData.get("messages") as string;
 
   if (!username && !messages) {
-    return { success: false };
+    throw new Error("Please enter the username and the messages");
   }
 
   const emailOptions = {
@@ -30,6 +30,4 @@ export async function sendEmailMessage(formData: FormData) {
       throw new Error(err);
     }
   });
-
-  return { success: true };
 }

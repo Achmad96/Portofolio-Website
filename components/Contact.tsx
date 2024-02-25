@@ -16,12 +16,10 @@ export default function Contact() {
         className="flex w-[50%] flex-col justify-start gap-5 max-md:w-[80%]"
         onSubmit={async (e) => {
           e.preventDefault();
-          const res = await sendEmailMessage(new FormData(e.currentTarget));
           let theme = "light";
+          theme = localStorage.getItem("theme") as string;
           try {
-            theme = localStorage.getItem("theme") as string;
-          } catch (e) {}
-          if (res.success === true) {
+            await sendEmailMessage(new FormData(e.currentTarget));
             const elements = document.querySelectorAll(
               'input[name="username"], textarea[name="messages"]',
             );
@@ -30,8 +28,8 @@ export default function Contact() {
               ...defaultToastConfig,
               theme: theme,
             });
-          } else {
-            toast.error("Failed to send email!", {
+          } catch (e: any) {
+            toast.error(e.messages, {
               ...defaultToastConfig,
               theme: theme,
             });
