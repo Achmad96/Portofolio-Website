@@ -1,6 +1,5 @@
 import vector from "../public/vector.png";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import About from "./About";
 
 export default function Hero() {

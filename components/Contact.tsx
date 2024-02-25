@@ -21,7 +21,7 @@ export default function Contact() {
           try {
             theme = localStorage.getItem("theme") as string;
           } catch (e) {}
-          if (res.sucess) {
+          if (res.success === true) {
             const elements = document.querySelectorAll(
               'input[name="username"], textarea[name="messages"]',
             );

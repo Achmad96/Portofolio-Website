@@ -6,7 +6,7 @@ export async function sendEmailMessage(formData: FormData) {
   const messages = formData.get("messages") as string;
 
   if (!username && !messages) {
-    return { sucess: false };
+    return { success: false };
   }
 
   const emailOptions = {
@@ -28,9 +28,9 @@ export async function sendEmailMessage(formData: FormData) {
   transporter.sendMail(emailOptions, (err: any, info: any) => {
     if (err) {
       console.log(err);
-      return { sucess: false };
+      return { success: false };
     }
   });
 
-  return { sucess: true };
+  return { success: true };
 }
