@@ -5,9 +5,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   experimental: {
-    serverActions: {
-      allowedOrigins: ["localhost", "portofolio-achmad96.vercel.app"],
-    },
+    serverActions:true,
   },
 };
 
