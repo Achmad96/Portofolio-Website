@@ -27,8 +27,7 @@ export async function sendEmailMessage(formData: FormData) {
 
   transporter.sendMail(emailOptions, (err: any, info: any) => {
     if (err) {
-      console.log(err);
-      return { success: false };
+      throw new Error(err);
     }
   });
 
