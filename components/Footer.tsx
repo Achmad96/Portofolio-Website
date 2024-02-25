@@ -33,7 +33,7 @@ export default function Footer() {
           <FaYoutube className="h-6 w-6" />
         </Link>
       </div>
-      <div className="flex flex-col text-xs">
+      <div className="flex flex-col text-xs max-md:items-center">
         <p>Copyright © 2024 by Achmad Raihan</p>
         <p>All rights reserved</p>
       </div>
