@@ -36,7 +36,7 @@ export default function PostCard(post: Post) {
             {isLessOrEqualThanAWeek ? "new" : "old"}
           </div>
         </h2>
-        <p>{post.subtitle}</p>
+        <p className="text-justify">{post.subtitle}</p>
         <div className="card-actions justify-end">
           <time
             dateTime={post.date}
