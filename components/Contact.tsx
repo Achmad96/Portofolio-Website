@@ -1,5 +1,4 @@
 "use client";
-import { sendEmailMessage } from "app/actions";
 import { KeyboardEvent, FormEvent, useRef } from "react";
 import { toast } from "react-toastify";
 
@@ -18,8 +17,11 @@ export default function Contact() {
           e.preventDefault();
           let theme = "light";
           theme = localStorage.getItem("theme") as string;
-          try {
-            await sendEmailMessage(new FormData(e.currentTarget));
+          const res = await fetch("/api/contact", {
+            method: "POST",
+            body: new FormData(e.currentTarget),
+          });
+          if (res.ok) {
             const elements = document.querySelectorAll(
               'input[name="username"], textarea[name="messages"]',
             );
@@ -28,8 +30,8 @@ export default function Contact() {
               ...defaultToastConfig,
               theme: theme,
             });
-          } catch (e: any) {
-            toast.error(e.messages, {
+          } else {
+            toast.error("Failed to sent email!", {
               ...defaultToastConfig,
               theme: theme,
             });
