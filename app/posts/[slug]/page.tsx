@@ -14,7 +14,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
   if (!post) notFound();
   const MDXContent = useMDXComponent(post.body.code);
   return (
-    <div className="mx-auto min-h-[72vh] max-w-[80%]">
+    <div className="mx-auto min-h-[80vh] max-w-[80%]">
       <div className="mb-6">
         <div
           style={{

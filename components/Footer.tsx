@@ -28,7 +28,7 @@ export default function Footer() {
         <Link
           target="_blank"
           rel="noopener noreferrer"
-          href={"https://www.youtube.com/channel/UC-WV52r-BjAKP79CLf5F7QQ"}
+          href={"https://www.youtube.com/@Achmad325"}
         >
           <FaYoutube className="h-6 w-6" />
         </Link>
