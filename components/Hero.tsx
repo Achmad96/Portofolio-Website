@@ -5,7 +5,7 @@ import About from "./About";
 export default function Hero() {
   return (
     <div
-      className="flex h-screen items-center gap-36 max-md:mt-10 max-md:flex-col max-md:gap-20"
+      className="flex h-screen items-center justify-center gap-36 max-md:mt-10 max-md:flex-col max-md:gap-20"
       id="about"
     >
       <About />

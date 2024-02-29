@@ -7,7 +7,6 @@ export default function ToogleThemeButton() {
   try {
     themeItem = localStorage.getItem("theme");
   } catch (e) {}
-
   const [theme, setTheme] = useState(themeItem || "light");
   const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
 

@@ -1,6 +1,7 @@
 import { allPosts } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 import { useMDXComponent } from "next-contentlayer/hooks";
+import Image from "next/image";
 
 const options: Intl.DateTimeFormatOptions = {
   weekday: "long",
@@ -14,28 +15,27 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
   if (!post) notFound();
   const MDXContent = useMDXComponent(post.body.code);
   return (
-    <div className="mx-auto min-h-[80vh] max-w-[80%]">
-      <div className="mb-6">
-        <div
-          style={{
-            backgroundImage: `url(${post.thumbnail})`,
-            backgroundPosition: "center",
-            backgroundSize: "cover",
-            width: "100%",
-            height: "50vh",
-            flex: "auto",
-            alignItems: "end",
-            justifyContent: "end",
-          }}
-        ></div>
-        <div className="mt-5 flex flex-col gap-3">
-          <h1 className="text-5xl font-extralight">{post.title}</h1>
+    <div className="flex min-h-[80vh] w-full flex-col items-center">
+      <div className="mb-6 flex w-full flex-col items-center">
+        <div className="relative h-[50vh] w-[80%]  max-sm:w-[85%]">
+          <Image
+            src={post.thumbnail}
+            alt="thumbnail"
+            layout="fill"
+            fill={true}
+            objectFit="cover"
+            className="rounded-3xl"
+            priority={true}
+          />
+        </div>
+        <div className="mt-5 flex w-[80%] flex-col gap-3 max-sm:w-[85%]">
+          <h1 className="text-5xl font-bold">{post.title}</h1>
           <time dateTime={post.date} className="mb-1 text-lg">
             {new Intl.DateTimeFormat("id", options).format(new Date(post.date))}
           </time>
         </div>
       </div>
-      <article className="prose max-w-fit text-justify prose-img:mx-auto">
+      <article className="prose max-w-[80%] text-justify prose-img:mx-auto prose-img:rounded-xl max-sm:max-w-[85%]">
         <MDXContent />
       </article>
     </div>
