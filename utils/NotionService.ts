@@ -125,7 +125,7 @@ const getPublishedArticles = cache(
 
 const getSingleArticlePage = cache(async (slug: string) => {
   const response = await client.databases.query({
-    database_id: process.env.NEXT_PUBLIC_NOTION_DATABASE_ID as string,
+    database_id: process.env.NEXT_NOTION_DATABASE_ID as string,
     filter: {
       and: [
         {

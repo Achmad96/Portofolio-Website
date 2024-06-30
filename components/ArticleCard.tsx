@@ -11,6 +11,7 @@ export default async function ArticleCard(article: ArticleType) {
   //     (new Date().getTime() - new Date(article.createdAt).getTime()) /
   //       (1000 * 60 * 60 * 24),
   //   ) <= 7;
+  console.log(article.slug);
 
   return (
     <Link
