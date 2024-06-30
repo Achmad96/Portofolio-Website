@@ -13,6 +13,17 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            h2: {
+              "&:hover": {
+                content: "#",
+              },
+            },
+          },
+        },
+      },
     },
   },
   daisyui: {

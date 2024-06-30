@@ -15,8 +15,6 @@ export default function Contact() {
         className="flex w-[50%] flex-col justify-start gap-5 max-md:w-[80%]"
         onSubmit={async (e) => {
           e.preventDefault();
-          let theme = "light";
-          theme = localStorage.getItem("theme") as string;
           const res = await fetch("/api/contact", {
             method: "POST",
             body: new FormData(e.currentTarget),
@@ -28,12 +26,10 @@ export default function Contact() {
             elements.forEach((v: any) => (v.value = ""));
             toast.success("Successfully sent an email!", {
               ...defaultToastConfig,
-              theme: theme,
             });
           } else {
             toast.error("Failed to sent email!", {
               ...defaultToastConfig,
-              theme: theme,
             });
           }
         }}

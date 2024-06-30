@@ -3,9 +3,9 @@ import ToogleThemeButton from "./ToogleThemeButton";
 
 export default function Navbar() {
   return (
-    <nav className="mr-10 flex h-[10vh] items-center justify-end gap-10 font-bold">
+    <nav className="flex h-[10dvh] items-center justify-end gap-10 pr-10 max-sm:pr-3">
       <Link href={"/"}>Home</Link>
-      <Link href={"/posts"}>Posts</Link>
+      <Link href={"/articles"}>Articles</Link>
       <ToogleThemeButton />
     </nav>
   );

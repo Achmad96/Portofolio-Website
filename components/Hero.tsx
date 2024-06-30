@@ -1,20 +1,24 @@
-import vector from "../public/vector.png";
 import Image from "next/image";
-import About from "./About";
+
+import HeroContent from "@/components/HeroContent";
+import vector from "@/public/vector.png";
+import { ImageContainer, ImageWithoutBlur } from "@/components/ImageComponent";
 
 export default function Hero() {
   return (
     <div
-      className="flex h-screen items-center justify-center gap-36 max-md:mt-10 max-md:flex-col max-md:gap-20"
+      className="flex h-[100dvh] w-full items-center justify-center gap-36 max-lg:gap-20 max-md:flex-col"
       id="about"
     >
-      <About />
-      <Image
-        src={vector}
-        alt="vectors"
-        className="h-80 w-80 max-md:h-52 max-md:w-52"
-        priority
-      />
+      <HeroContent />
+      <ImageContainer className="relative h-80 w-80">
+        <ImageWithoutBlur
+          src={vector}
+          alt="vectors"
+          className="max-md:h-52 max-md:w-52"
+          sizes=""
+        />
+      </ImageContainer>
     </div>
   );
 }

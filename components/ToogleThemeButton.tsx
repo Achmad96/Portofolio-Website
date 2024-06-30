@@ -3,14 +3,15 @@
 import { useEffect, useState } from "react";
 
 export default function ToogleThemeButton() {
-  let themeItem;
-  try {
-    themeItem = localStorage.getItem("theme");
-  } catch (e) {}
-  const [theme, setTheme] = useState(themeItem || "light");
+  const [theme, setTheme] = useState<string | null>(null);
   const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
 
   useEffect(() => {
+    setTheme(localStorage.getItem("theme") || "light");
+  }, []);
+
+  useEffect(() => {
+    if (!theme) return;
     localStorage.setItem("theme", theme);
     document.querySelector("html")?.setAttribute("data-theme", theme);
   }, [theme]);
@@ -19,7 +20,7 @@ export default function ToogleThemeButton() {
     <label className="swap swap-rotate">
       <input
         type="checkbox"
-        checked={theme !== "light"}
+        checked={theme !== "dark"}
         onChange={toggleTheme}
       />
       <svg
