@@ -11,7 +11,7 @@ import type {
 } from "@/types";
 import { formatDate } from "@/utils/Format";
 
-const client = new Client({ auth: process.env.NEXT_PUBLIC_NOTION_API_KEY });
+const client = new Client({ auth: process.env.NEXT_NOTION_API_KEY });
 const notionToMarkdown = new NotionToMarkdown({ notionClient: client });
 
 const getCover = (page: any): string => {
@@ -95,7 +95,7 @@ const getPublishedArticles = cache(
     startCursor: string | undefined = undefined,
   ): Promise<ArticleFormType> => {
     const response = await client.databases.query({
-      database_id: process.env.NEXT_PUBLIC_NOTION_DATABASE_ID as string,
+      database_id: process.env.NEXT_NOTION_DATABASE_ID as string,
       start_cursor: startCursor,
       page_size: pageSize,
       filter: {
