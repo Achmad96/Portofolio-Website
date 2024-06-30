@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { join } from "path";
 import playwright from "playwright";
 
 export async function GET(request: NextRequest) {
@@ -11,6 +12,16 @@ export async function GET(request: NextRequest) {
 
   try {
     const browser = await playwright.chromium.launch({
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+      executablePath: join(
+        process.cwd(),
+        "node_modules",
+        "playwright-core",
+        ".local-browsers",
+        "chromium",
+        "chrome-linux",
+        "chrome",
+      ),
       headless: true,
     });
     const context = await browser.newContext();
