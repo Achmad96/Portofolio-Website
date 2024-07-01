@@ -11,7 +11,10 @@ import type {
 } from "@/types";
 import { formatDate } from "@/utils/Format";
 
-const client = new Client({ auth: process.env.NEXT_NOTION_API_KEY });
+const API_KEY = process.env.NEXT_NOTION_API_KEY;
+const DATABASE_ID = process.env.NEXT_NOTION_DATABASE_ID;
+
+const client = new Client({ auth: API_KEY });
 const notionToMarkdown = new NotionToMarkdown({ notionClient: client });
 
 const getCover = (page: any): string => {
@@ -52,7 +55,6 @@ const getHeadings = async (pageId: string): Promise<any> => {
   const response = await client.blocks.children.list({
     block_id: pageId,
   });
-
   const headings = response.results
     .filter(
       (block: any) =>
@@ -66,8 +68,7 @@ const getHeadings = async (pageId: string): Promise<any> => {
 
 const transformPageToArticleForm = async (page: any): Promise<ArticleType> => {
   const { properties } = page;
-  const { Title, Tags, Author, Published, Slug, CreatedAt, UpdatedAt } =
-    properties;
+  const { Title, Tags, Author, Published, Slug, CreatedAt } = properties;
   return {
     id: page.id as string,
     cover: getCover(page),
@@ -95,7 +96,7 @@ const getPublishedArticles = cache(
     startCursor: string | undefined = undefined,
   ): Promise<ArticleFormType> => {
     const response = await client.databases.query({
-      database_id: process.env.NEXT_NOTION_DATABASE_ID as string,
+      database_id: DATABASE_ID as string,
       start_cursor: startCursor,
       page_size: pageSize,
       filter: {
@@ -125,7 +126,7 @@ const getPublishedArticles = cache(
 
 const getSingleArticlePage = cache(async (slug: string) => {
   const response = await client.databases.query({
-    database_id: process.env.NEXT_NOTION_DATABASE_ID as string,
+    database_id: DATABASE_ID as string,
     filter: {
       and: [
         {
