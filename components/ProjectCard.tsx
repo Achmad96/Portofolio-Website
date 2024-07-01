@@ -23,7 +23,7 @@ const ProjectCard = (props: IProjectCard) => {
   }, []);
   return (
     <div className="card w-96 bg-base-100 shadow-xl hover:cursor-pointer max-sm:w-80">
-      <figure className="relative h-52 w-full">
+      {/* <figure className="relative h-52 w-full">
         {image && (
           <Image
             className="h-48 w-full"
@@ -33,12 +33,7 @@ const ProjectCard = (props: IProjectCard) => {
             sizes="(max-width: 1024px) 100vw"
           />
         )}
-        {/* <iframe
-          src={project.url}
-          style={{ width: "100%", height: "100%", border: "none" }}
-          title="External Website"
-        /> */}
-      </figure>
+      </figure> */}
       <div className="card-body">
         <h2 className="card-title">
           {project.title}

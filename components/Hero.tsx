@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import HeroContent from "@/components/HeroContent";
 import vector from "@/public/vector.png";
 import { ImageContainer, ImageWithoutBlur } from "@/components/ImageComponent";
@@ -16,7 +14,7 @@ export default function Hero() {
           src={vector}
           alt="vectors"
           className="max-md:h-52 max-md:w-52"
-          sizes=""
+          sizes="(max-width: 1024px) 100vw"
         />
       </ImageContainer>
     </div>
