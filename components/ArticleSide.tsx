@@ -1,7 +1,7 @@
 import { HeadingMapStruct } from "@/types";
 import { formatSlug } from "@/utils/Format";
 import { mergeHeadings } from "@/utils/MergeHeadings";
-import Link from "next/link";
+import { Link } from "react-scroll";
 
 interface IArticleSide {
   title: string;
@@ -16,19 +16,17 @@ const ArticleSide = ({ title, headings }: IArticleSide) => {
         <h2 className="menu-title">Navigation - {title}</h2>
         {mergedHeadings.map((heading: HeadingMapStruct) => (
           <li key={heading.id}>
-            <Link href={`#${formatSlug(heading.text)}`}>{heading.text}</Link>
+            <Link to={formatSlug(heading.text)}>{heading.text}</Link>
             {heading.sub && (
               <ul>
                 {heading.sub.map((heading2: HeadingMapStruct) => (
                   <li key={heading2.id}>
-                    <Link href={`#${formatSlug(heading2.text)}`}>
-                      {heading2.text}
-                    </Link>
+                    <Link to={formatSlug(heading2.text)}>{heading2.text}</Link>
                     {heading2.sub && (
                       <ul>
                         {heading2.sub.map((heading3: HeadingMapStruct) => (
                           <li key={heading3.id}>
-                            <Link href={`#${formatSlug(heading3.text)}`}>
+                            <Link to={formatSlug(heading3.text)}>
                               {heading3.text}
                             </Link>
                           </li>
