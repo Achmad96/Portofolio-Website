@@ -9,7 +9,7 @@ import slugify from "slugify";
 import ArticleContent from "@/components/ArticleContent";
 import ArticleSide from "@/components/ArticleSide";
 
-export const revalidate = 600;
+export const revalidate = 3600;
 
 const Page = async ({ params }: { params: { slug: string } }) => {
   const { article, markdown } = await getSingleArticlePage(params.slug);

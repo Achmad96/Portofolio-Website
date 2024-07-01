@@ -6,7 +6,7 @@ import PaginationComponent from "@/components/PaginationComponent";
 
 const PAGE_SIZE = 4;
 
-export const revalidate = 600;
+export const revalidate = 3600;
 
 interface IPage {
   searchParams: {
