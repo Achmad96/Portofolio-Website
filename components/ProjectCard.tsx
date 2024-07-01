@@ -1,9 +1,5 @@
-"use client";
-import Image from "next/image";
-
 import { iconComponents } from "constants/IconComponents";
 import { ProjectType } from "@/constants/ProjectsMetadata";
-import { useEffect, useState } from "react";
 
 interface IProjectCard {
   project: ProjectType;
@@ -12,28 +8,8 @@ interface IProjectCard {
 
 const ProjectCard = (props: IProjectCard) => {
   const { project } = props;
-  const [image, setImage] = useState("");
-  useEffect(() => {
-    fetch(`/api/capture?url=${encodeURIComponent(project.url)}`).then(
-      async (res) => {
-        const blob = await res.blob();
-        setImage(URL.createObjectURL(blob));
-      },
-    );
-  }, []);
   return (
     <div className="card w-96 bg-base-100 shadow-xl hover:cursor-pointer max-sm:w-80">
-      {/* <figure className="relative h-52 w-full">
-        {image && (
-          <Image
-            className="h-48 w-full"
-            src={image}
-            alt={project.title}
-            fill={true}
-            sizes="(max-width: 1024px) 100vw"
-          />
-        )}
-      </figure> */}
       <div className="card-body">
         <h2 className="card-title">
           {project.title}
