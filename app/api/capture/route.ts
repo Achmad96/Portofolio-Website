@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { join } from "path";
-import playwright from "playwright";
+import puppeteer from "puppeteer-core";
+import chromium from "@sparticuz/chromium";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
@@ -11,25 +11,29 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const browser = await playwright.chromium.launch({
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
-      executablePath: join(
-        process.cwd(),
-        "node_modules",
-        "playwright-core",
-        ".local-browsers",
-        "chromium",
-        "chrome-linux",
-        "chrome",
-      ),
-      headless: true,
-    });
-    const context = await browser.newContext();
-    const page = await context.newPage();
-    await page.setViewportSize({ width: 1920, height: 1080 });
-    await page.goto(url, { waitUntil: "networkidle" });
+    let browser = null;
+    // if (process.env.NODE_ENV === "development") {
+    //   browser = await puppeteer.launch({
+    //     args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    //     headless: true,
+    //     // executablePath: "",
+    //     // channel:
+    //   });
+    // }
+    if (process.env.NODE_ENV === "production") {
+      browser = await puppeteer.launch({
+        args: chromium.args,
+        defaultViewport: chromium.defaultViewport,
+        executablePath: await chromium.executablePath(),
+        headless: chromium.headless,
+      });
+    }
+    // const context = await browser.newPage();
+    const page = await browser!.newPage();
+    await page.setViewport({ width: 1920, height: 1080 });
+    await page.goto(url, { waitUntil: "networkidle0" });
     const screenshot = await page.screenshot();
-    await browser.close();
+    await browser!.close();
     return new NextResponse(screenshot, {
       headers: {
         "Content-Type": "image/png",

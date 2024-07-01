@@ -33,6 +33,11 @@ const ProjectCard = (props: IProjectCard) => {
             sizes="(max-width: 1024px) 100vw"
           />
         )}
+        {/* <iframe
+          src={project.url}
+          style={{ width: "100%", height: "100%", border: "none" }}
+          title="External Website"
+        /> */}
       </figure>
       <div className="card-body">
         <h2 className="card-title">
