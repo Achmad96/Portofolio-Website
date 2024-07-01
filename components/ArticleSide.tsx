@@ -1,3 +1,4 @@
+"use client";
 import { HeadingMapStruct } from "@/types";
 import { formatSlug } from "@/utils/Format";
 import { mergeHeadings } from "@/utils/MergeHeadings";
@@ -16,17 +17,36 @@ const ArticleSide = ({ title, headings }: IArticleSide) => {
         <h2 className="menu-title">Navigation - {title}</h2>
         {mergedHeadings.map((heading: HeadingMapStruct) => (
           <li key={heading.id}>
-            <Link to={formatSlug(heading.text)}>{heading.text}</Link>
+            <Link
+              to={formatSlug(heading.text)}
+              spy={true}
+              smooth={true}
+              duration={500}
+            >
+              {heading.text}
+            </Link>
             {heading.sub && (
               <ul>
                 {heading.sub.map((heading2: HeadingMapStruct) => (
                   <li key={heading2.id}>
-                    <Link to={formatSlug(heading2.text)}>{heading2.text}</Link>
+                    <Link
+                      to={formatSlug(heading2.text)}
+                      spy={true}
+                      smooth={true}
+                      duration={500}
+                    >
+                      {heading2.text}
+                    </Link>
                     {heading2.sub && (
                       <ul>
                         {heading2.sub.map((heading3: HeadingMapStruct) => (
                           <li key={heading3.id}>
-                            <Link to={formatSlug(heading3.text)}>
+                            <Link
+                              to={formatSlug(heading3.text)}
+                              spy={true}
+                              smooth={true}
+                              duration={500}
+                            >
                               {heading3.text}
                             </Link>
                           </li>
