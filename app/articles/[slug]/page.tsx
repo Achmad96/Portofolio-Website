@@ -17,7 +17,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   const blurImageData = (await getBlurData(article.cover)) as BlurImageDataType;
   const headings = await getHeadings(article.id);
   const headingMap = headings.reduce((acc: any, heading: any) => {
-    acc[heading.text] = slugify(heading.text, {
+    acc[heading.text] = slugify("h-" + heading.text, {
       lower: true,
       strict: true,
     });
