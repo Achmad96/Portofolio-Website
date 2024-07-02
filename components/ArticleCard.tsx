@@ -2,7 +2,7 @@ import { ArticleType } from "@/types";
 
 import Link from "next/link";
 import { BlurImageDataType, getBlurData } from "@/app/actions";
-import { ImageWithBlur } from "./ImageComponent";
+import { ImageWithBlur } from "@/components/ImageComponent";
 
 export default async function ArticleCard(article: ArticleType) {
   const blurImageData = (await getBlurData(article.cover)) as BlurImageDataType;
@@ -11,8 +11,6 @@ export default async function ArticleCard(article: ArticleType) {
   //     (new Date().getTime() - new Date(article.createdAt).getTime()) /
   //       (1000 * 60 * 60 * 24),
   //   ) <= 7;
-  console.log(article.slug);
-
   return (
     <Link
       href={`articles/${article.slug}`}

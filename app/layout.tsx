@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Provider from "@/providers/Provider";
 
 export const metadata: Metadata = {
   title: "Achmad's Portofolio",
@@ -18,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navbar />
-        {children}
+        <Provider>{children}</Provider>
         <Footer />
       </body>
     </html>
