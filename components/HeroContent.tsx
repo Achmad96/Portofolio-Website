@@ -10,7 +10,7 @@ const itemVariant: Variants = {
   closed: { opacity: 0, y: "100%" },
 };
 
-export default function About() {
+const HeroContent = () => {
   return (
     <div className="flex flex-col gap-3 max-lg:ml-5">
       <motion.div
@@ -77,4 +77,5 @@ export default function About() {
       </motion.div>
     </div>
   );
-}
+};
+export default HeroContent;

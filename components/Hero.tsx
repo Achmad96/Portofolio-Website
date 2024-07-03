@@ -2,7 +2,7 @@ import HeroContent from "@/components/HeroContent";
 import vector from "@/public/vector.png";
 import { ImageContainer, ImageWithoutBlur } from "@/components/ImageComponent";
 
-export default function Hero() {
+const Hero = () => {
   return (
     <div
       className="flex h-[100dvh] w-full items-center justify-center gap-36 max-lg:gap-20 max-md:flex-col"
@@ -19,4 +19,5 @@ export default function Hero() {
       </ImageContainer>
     </div>
   );
-}
+};
+export default Hero;

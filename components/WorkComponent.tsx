@@ -1,13 +1,14 @@
-import { Projects } from "@/constants/ProjectsMetadata";
+import { PROJECTS_METADATA } from "@/constants/ProjectsMetadata";
 
 import ProjectCard from "@/components/ProjectCard";
 
-export default function Work() {
+const Work = () => {
   return (
     <div className="flex w-full flex-wrap justify-center gap-10 max-sm:flex-col max-sm:items-center max-sm:gap-5">
-      {Projects.map((project, i) => (
+      {PROJECTS_METADATA.map((project, i) => (
         <ProjectCard key={i} project={project} index={i} />
       ))}
     </div>
   );
-}
+};
+export default Work;

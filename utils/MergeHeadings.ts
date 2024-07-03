@@ -7,7 +7,7 @@ type HeadingMapStruct = {
   sub?: HeadingMapStruct[];
 };
 
-function mergeHeadings(headings: HeadingMapStruct[]): HeadingMapStruct[] {
+const mergeHeadings = (headings: HeadingMapStruct[]): HeadingMapStruct[] => {
   const result: HeadingMapStruct[] = [];
   const stack: HeadingMapStruct[] = [];
   headings.forEach((heading) => {
@@ -36,5 +36,5 @@ function mergeHeadings(headings: HeadingMapStruct[]): HeadingMapStruct[] {
     stack.push(newHeading);
   });
   return result;
-}
+};
 export { mergeHeadings };

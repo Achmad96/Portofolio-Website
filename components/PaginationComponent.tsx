@@ -13,12 +13,12 @@ interface IPaginationComponents {
 
 const PREV_CURSORS_NAME = "previousCursors";
 
-export default function PaginationComponent({
+const PaginationComponent = ({
   articles,
   nextCursor,
   hasMore,
   searchParams,
-}: IPaginationComponents) {
+}: IPaginationComponents) => {
   const router = useRouter();
   const startCursor = articles[0]?.id || "";
   const [prevCursors, setPrevCursors] = useState<string[]>([]);
@@ -76,4 +76,5 @@ export default function PaginationComponent({
       </button>
     </div>
   );
-}
+};
+export default PaginationComponent;

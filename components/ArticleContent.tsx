@@ -5,10 +5,7 @@ interface IArticleContent {
   content: string;
   headingMap: any;
 }
-export default function ArticleContent({
-  content,
-  headingMap,
-}: IArticleContent) {
+const ArticleContent = ({ content, headingMap }: IArticleContent) => {
   return (
     <Markdown
       remarkPlugins={[remarkGfm]}
@@ -48,4 +45,6 @@ export default function ArticleContent({
       {content}
     </Markdown>
   );
-}
+};
+
+export default ArticleContent;

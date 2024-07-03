@@ -4,7 +4,7 @@ import Link from "next/link";
 import { BlurImageDataType, getBlurData } from "@/app/actions";
 import { ImageWithBlur } from "@/components/ImageComponent";
 
-export default async function ArticleCard(article: ArticleType) {
+const ArticleCard = async (article: ArticleType) => {
   const blurImageData = (await getBlurData(article.cover)) as BlurImageDataType;
   // const isLessOrEqualThanAWeek =
   //   Math.floor(
@@ -33,4 +33,5 @@ export default async function ArticleCard(article: ArticleType) {
       </div>
     </Link>
   );
-}
+};
+export default ArticleCard;

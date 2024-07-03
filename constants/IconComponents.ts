@@ -3,7 +3,7 @@ import { FaReact, FaHtml5, FaCss3, FaJs, FaNodeJs } from "react-icons/fa";
 import { SiTailwindcss } from "react-icons/si";
 import { TbBrandNextjs } from "react-icons/tb";
 
-const iconComponents: Record<string, IconType> = {
+const ICON_COMPONENTS: Record<string, IconType> = {
   html: FaHtml5,
   css: FaCss3,
   js: FaJs,
@@ -13,4 +13,4 @@ const iconComponents: Record<string, IconType> = {
   nextjs: TbBrandNextjs,
 };
 
-export { iconComponents };
+export { ICON_COMPONENTS };

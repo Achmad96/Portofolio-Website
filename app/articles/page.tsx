@@ -14,9 +14,7 @@ interface IPage {
   };
 }
 
-export default async function Page({
-  searchParams: { startCursor = undefined },
-}: IPage) {
+const Page = async ({ searchParams: { startCursor = undefined } }: IPage) => {
   const { articles, nextCursor, hasMore } = (await getPublishedArticles(
     PAGE_SIZE,
     startCursor,
@@ -36,4 +34,6 @@ export default async function Page({
       />
     </div>
   );
-}
+};
+
+export default Page;

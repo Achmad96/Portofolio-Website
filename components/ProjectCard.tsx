@@ -1,4 +1,4 @@
-import { iconComponents } from "constants/IconComponents";
+import { ICON_COMPONENTS } from "constants/IconComponents";
 import { ProjectType } from "@/constants/ProjectsMetadata";
 
 interface IProjectCard {
@@ -19,7 +19,7 @@ const ProjectCard = (props: IProjectCard) => {
         <div className="card-actions justify-start">
           <div className="mt-1 flex items-center gap-3">
             {project.icons.map((icon, index) => {
-              const IconComponent = iconComponents[icon];
+              const IconComponent = ICON_COMPONENTS[icon];
               return (
                 <span key={index}>
                   <IconComponent size={25} />

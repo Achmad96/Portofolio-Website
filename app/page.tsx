@@ -1,14 +1,15 @@
-import Contact from "components/Contact";
-import Work from "@/components/Work";
+import ContactComponent from "components/ContactComponent";
+import WorkComponent from "@/components/WorkComponent";
 import Hero from "components/Hero";
 import "react-toastify/dist/ReactToastify.css";
 
-export default async function Home() {
+const HomePage = () => {
   return (
     <main className="min-h-screen">
       <Hero />
-      <Work />
-      <Contact />
+      <WorkComponent />
+      <ContactComponent />
     </main>
   );
-}
+};
+export default HomePage;

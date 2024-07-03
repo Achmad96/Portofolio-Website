@@ -1,4 +1,4 @@
-function formatDescription(description: any): string {
+const formatDescription = (description: any): string => {
   description = description.rich_text
     .map((word: any) => word.plain_text)
     .join("");
@@ -17,18 +17,18 @@ function formatDescription(description: any): string {
     truncatedDescription = truncatedByChars.slice(0, lastSpaceIndex) + "...";
   }
   return truncatedDescription;
-}
+};
 
-function formatDate(date: string): string {
+const formatDate = (date: string): string => {
   const currentDate = new Date(date);
   return currentDate.toLocaleDateString("id-ID", {
     day: "numeric",
     month: "long",
     year: "numeric",
   });
-}
+};
 
-function formatSlug(str: string): string {
+const formatSlug = (str: string): string => {
   return str.replace(/\s+/g, "-").toLowerCase();
-}
+};
 export { formatDescription, formatDate, formatSlug };

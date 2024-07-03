@@ -1,6 +1,6 @@
 "use client";
 import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
-export default function LoadingBar() {
+const ProgressBarProvider = () => {
   return (
     <ProgressBar
       height="4px"
@@ -9,4 +9,6 @@ export default function LoadingBar() {
       shallowRouting
     />
   );
-}
+};
+
+export default ProgressBarProvider;

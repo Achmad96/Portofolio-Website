@@ -3,13 +3,13 @@ import { KeyboardEvent, FormEvent, useRef } from "react";
 import { toast } from "react-toastify";
 
 import { ToastContainer } from "react-toastify";
-import { defaultToastConfig } from "constants/ToastConfig";
+import { DEFAULT_TOAST_CONFIG } from "constants/ToastConfig";
 
-export default function Contact() {
+const Contact = () => {
   const ref = useRef<HTMLTextAreaElement | null>(null);
   return (
     <div className="flex h-screen w-full items-center justify-center">
-      <ToastContainer {...defaultToastConfig} />
+      <ToastContainer {...DEFAULT_TOAST_CONFIG} />
       <form
         autoComplete="off"
         className="flex w-[50%] flex-col justify-start gap-5 max-md:w-[80%]"
@@ -25,11 +25,11 @@ export default function Contact() {
             );
             elements.forEach((v: any) => (v.value = ""));
             toast.success("Successfully sent an email!", {
-              ...defaultToastConfig,
+              ...DEFAULT_TOAST_CONFIG,
             });
           } else {
             toast.error("Failed to sent email!", {
-              ...defaultToastConfig,
+              ...DEFAULT_TOAST_CONFIG,
             });
           }
         }}
@@ -69,4 +69,6 @@ export default function Contact() {
       </form>
     </div>
   );
-}
+};
+
+export default Contact;

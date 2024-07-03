@@ -6,9 +6,9 @@ interface ImageContainerInterface {
   className: string;
 }
 
-function ImageContainer({ children, className }: ImageContainerInterface) {
+const ImageContainer = ({ children, className }: ImageContainerInterface) => {
   return <div className={className}>{children}</div>;
-}
+};
 
 interface ImageWithoutBlurInterface {
   src: string | StaticImageData;
@@ -17,7 +17,7 @@ interface ImageWithoutBlurInterface {
   className?: string;
 }
 
-function ImageWithoutBlur(props: ImageWithoutBlurInterface) {
+const ImageWithoutBlur = (props: ImageWithoutBlurInterface) => {
   const { src, alt, sizes, className } = props;
   return (
     <Image
@@ -29,7 +29,7 @@ function ImageWithoutBlur(props: ImageWithoutBlurInterface) {
       className={className}
     />
   );
-}
+};
 
 interface ImageWithBlurInterface {
   blurImageData: BlurImageDataType;
@@ -40,7 +40,7 @@ interface ImageWithBlurInterface {
   sizes?: string;
 }
 
-function ImageWithBlur(props: ImageWithBlurInterface) {
+const ImageWithBlur = (props: ImageWithBlurInterface) => {
   const { alt, className, blurImageData, style, fill, sizes } = props;
   const { img, base64 } = blurImageData;
   return (
@@ -58,6 +58,6 @@ function ImageWithBlur(props: ImageWithBlurInterface) {
       style={style}
     />
   );
-}
+};
 
 export { ImageWithoutBlur, ImageWithBlur, ImageContainer };

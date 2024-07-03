@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 
-export default function ToogleThemeButton() {
+const ToggleThemeButton = () => {
   const [theme, setTheme] = useState<string | null>(null);
   const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
 
@@ -38,4 +38,5 @@ export default function ToogleThemeButton() {
       </svg>
     </label>
   );
-}
+};
+export default ToggleThemeButton;

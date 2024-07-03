@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ToogleThemeButton from "./ToogleThemeButton";
+import ToogleThemeButton from "./ToggleThemeButton";
 
 export default function Navbar() {
   return (

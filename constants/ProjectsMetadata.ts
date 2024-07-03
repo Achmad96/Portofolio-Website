@@ -6,7 +6,7 @@ type ProjectType = {
   type: string;
 };
 
-const Projects: ProjectType[] = [
+const PROJECTS_METADATA: ProjectType[] = [
   {
     title: "Geotera",
     description:
@@ -33,4 +33,4 @@ const Projects: ProjectType[] = [
   },
 ];
 
-export { Projects, type ProjectType };
+export { PROJECTS_METADATA, type ProjectType };
