@@ -1,5 +1,6 @@
 import { ICON_COMPONENTS } from "constants/IconComponents";
 import { ProjectType } from "@/constants/ProjectsMetadata";
+import Link from "next/link";
 
 interface IProjectCard {
   project: ProjectType;
@@ -9,7 +10,10 @@ interface IProjectCard {
 const ProjectCard = (props: IProjectCard) => {
   const { project } = props;
   return (
-    <div className="card w-96 bg-base-100 shadow-xl hover:cursor-pointer max-sm:w-80">
+    <Link
+      href={project.url}
+      className="card w-96 bg-base-100 shadow-xl hover:cursor-pointer max-sm:w-80"
+    >
       <div className="card-body">
         <h2 className="card-title">
           {project.title}
@@ -29,7 +33,7 @@ const ProjectCard = (props: IProjectCard) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
