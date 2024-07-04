@@ -22,9 +22,9 @@ const Page = async ({ searchParams: { startCursor = undefined } }: IPage) => {
   return (
     <div className="flex h-auto min-h-[80vh] flex-col items-center justify-center gap-5 max-md:min-h-[78dvh]">
       <div className="flex flex-wrap">
-        {articles.map((article) => {
-          return <ArticleCard key={article.id} {...article} />;
-        })}
+        {articles.map((article) => (
+          <ArticleCard key={article.id} {...article} />
+        ))}
       </div>
       <PaginationComponent
         articles={articles}

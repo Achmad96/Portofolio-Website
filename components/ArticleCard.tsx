@@ -1,11 +1,13 @@
 import { ArticleType } from "@/types";
 
 import Link from "next/link";
-import { BlurImageDataType, getBlurData } from "@/app/actions";
+import { BlurImageDataType, getBlurDataImage } from "@/app/actions";
 import { ImageWithBlur } from "@/components/ImageComponent";
 
 const ArticleCard = async (article: ArticleType) => {
-  const blurImageData = (await getBlurData(article.cover)) as BlurImageDataType;
+  const blurImageData = (await getBlurDataImage(
+    article.cover,
+  )) as BlurImageDataType;
   // const isLessOrEqualThanAWeek =
   //   Math.floor(
   //     (new Date().getTime() - new Date(article.createdAt).getTime()) /

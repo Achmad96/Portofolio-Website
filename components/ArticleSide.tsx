@@ -26,7 +26,6 @@ const ArticleSide = ({ title, headings }: IArticleSide) => {
           setElementOnRead(element.id);
         }
       });
-      console.log({ scrollTop });
     }, 100),
     [],
   );

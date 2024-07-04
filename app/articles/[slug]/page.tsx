@@ -3,7 +3,7 @@ import { ArticleType } from "@/types";
 
 import { getHeadings, getSingleArticlePage } from "@/utils/NotionService";
 import { ImageContainer, ImageWithBlur } from "@/components/ImageComponent";
-import { BlurImageDataType, getBlurData } from "@/app/actions";
+import { BlurImageDataType, getBlurDataImage } from "@/app/actions";
 
 import slugify from "slugify";
 import ArticleContent from "@/components/ArticleContent";
@@ -14,7 +14,9 @@ export const revalidate = 3600;
 const Page = async ({ params }: { params: { slug: string } }) => {
   const { article, markdown } = await getSingleArticlePage(params.slug);
   if (!article) return notFound();
-  const blurImageData = (await getBlurData(article.cover)) as BlurImageDataType;
+  const blurImageData = (await getBlurDataImage(
+    article.cover,
+  )) as BlurImageDataType;
   const headings = await getHeadings(article.id);
   const headingMap = headings.reduce((acc: any, heading: any) => {
     acc[heading.text] = slugify("h-" + heading.text, {
