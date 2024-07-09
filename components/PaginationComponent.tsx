@@ -33,7 +33,6 @@ const PaginationComponent = ({
       localStorage.setItem(PREV_CURSORS_NAME, "[]");
       return;
     }
-
     const handleDelete = () => localStorage.setItem(PREV_CURSORS_NAME, "[]");
     window.addEventListener("beforeunload", handleDelete);
     return () => window.removeEventListener("beforeunload", handleDelete);
