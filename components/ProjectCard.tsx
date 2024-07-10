@@ -4,7 +4,6 @@ import Link from "next/link";
 
 interface IProjectCard {
   project: ProjectType;
-  index: number;
 }
 
 const ProjectCard = (props: IProjectCard) => {
